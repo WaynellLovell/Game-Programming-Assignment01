@@ -88,12 +88,10 @@ public class Drunk_Car_Controller : MonoBehaviour {
     {
         if (this._transform.position.y <= -213f)
         {
-            Debug.Log("Switching to going up.");
             DriftPosition = "Up";
         }
-        else if(this._transform.position.y >= 117f)
+        else if(this._transform.position.y >= 117.8f)
         {
-            Debug.Log("Switching to going down.");
             DriftPosition = "Down";
         }
     }
@@ -103,7 +101,7 @@ public class Drunk_Car_Controller : MonoBehaviour {
 	 */
     private void _checkBounds()
     {
-        if (this._transform.position.x <= -330f)
+        if (this._transform.position.x <= 256f)
         {
             this._reset();
         }
@@ -116,6 +114,6 @@ public class Drunk_Car_Controller : MonoBehaviour {
     {
         this.Speed = Random.Range(5, 10);
         this.Drift = 2;
-        this._transform.position = new Vector2(391.2f,Random.Range(-214.7f, 118.7f));
+        this._transform.position = new Vector2(1039f,Random.Range(-214.7f, 118.7f));
     }
 }

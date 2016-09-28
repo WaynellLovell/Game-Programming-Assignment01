@@ -81,6 +81,7 @@
     <Compile Include="Assets\_Scripts\Car_Controller.cs" />
     <Compile Include="Assets\_Scripts\Cloud_Controller.cs" />
     <Compile Include="Assets\_Scripts\Drunk_Car_Controller.cs" />
+    <Compile Include="Assets\_Scripts\Game_Controller.cs" />
     <Compile Include="Assets\_Scripts\Player_Controller.cs" />
     <Compile Include="Assets\_Scripts\background_Controller.cs" />
   </ItemGroup>

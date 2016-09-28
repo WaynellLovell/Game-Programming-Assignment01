@@ -39,7 +39,7 @@ public class Car_Controller : MonoBehaviour
      */
     private void _checkBounds()
     {
-        if (this._transform.position.x <= -415f)
+        if (this._transform.position.x <= 256f)
         {
             this._reset();
         }
@@ -50,6 +50,6 @@ public class Car_Controller : MonoBehaviour
      */
     private void _reset()
     {
-        this._transform.position = new Vector2(417f, Random.Range(-210f,118.6f));
+        this._transform.position = new Vector2(1040f, Random.Range(-204f,118.6f));
     }
 }

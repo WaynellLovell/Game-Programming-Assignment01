@@ -51,7 +51,7 @@ public class Cloud_Controller : MonoBehaviour {
      */
     private void _checkBounds()
     {
-        if (this._transform.position.x <= -378.5f)
+        if (this._transform.position.x <= 256f)
         {
             this._reset();
         }
@@ -62,6 +62,6 @@ public class Cloud_Controller : MonoBehaviour {
      */
     private void _reset()
     {
-        this._transform.position = new Vector2(379.9f,197.2f);
+        this._transform.position = new Vector2(1028f,197.2f);
     }
 }

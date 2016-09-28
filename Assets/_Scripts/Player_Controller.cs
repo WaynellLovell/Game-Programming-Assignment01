@@ -18,7 +18,7 @@ public class Player_Controller : MonoBehaviour {
     // Will move the player up and down on game
     private void _move()
     {
-        this._transform.position = new Vector2(-243f, Mathf.Clamp(Input.mousePosition.y - 47.3f,-210f,118.6f));
+        this._transform.position = new Vector2(405f, Mathf.Clamp(Input.mousePosition.y - 47.3f,-210f,118.6f));
     }
     //detects if hit by car
     private void OnTriggerEnter2D(Collider2D other)
