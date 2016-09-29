@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Car_Controller : MonoBehaviour
@@ -8,11 +9,14 @@ public class Car_Controller : MonoBehaviour
 
     // PUBLIC PROPERTIES+++++++++++++++++++++++++++++++++
     public int Speed = 5;
+    public Game_Controller controller;
 
     // Use this for initialization
     void Start()
     {
         this._transform = this.GetComponent<Transform>();
+        controller = GameObject.FindWithTag("GameController").GetComponent <Game_Controller> ();
+
     }
 
     // Update is called once per frame
@@ -41,15 +45,16 @@ public class Car_Controller : MonoBehaviour
     {
         if (this._transform.position.x <= 256f)
         {
-            this._reset();
+            this._destroy();
         }
     }
 
     /**
      * this method resets the game object to the original position
      */
-    private void _reset()
+    private void _destroy()
     {
-        this._transform.position = new Vector2(1040f, Random.Range(-204f,118.6f));
+        controller.SpawnCars();
+        DestroyObject(gameObject);
     }
 }

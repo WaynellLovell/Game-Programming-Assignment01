@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class background_Controller : MonoBehaviour {
@@ -19,12 +20,14 @@ public class background_Controller : MonoBehaviour {
             this._speed = value;
         }
     }
+    public Game_Controller controller;
 
     // Use this for initialization
     void Start()
     {
         this._transform = this.GetComponent<Transform>();
         this._speed = 2;
+        controller = GameObject.FindWithTag("GameController").GetComponent<Game_Controller>();
     }
 
     // Update is called once per frame
@@ -44,6 +47,8 @@ public class background_Controller : MonoBehaviour {
         newPosition.x -= this._speed;
 
         this._transform.position = newPosition;
+
+        controller.IncreaseScore(1);
     }
 
     /**

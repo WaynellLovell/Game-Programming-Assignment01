@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Drunk_Car_Controller : MonoBehaviour {
@@ -44,14 +45,17 @@ public class Drunk_Car_Controller : MonoBehaviour {
             this._driftPosition = value;
         }
     }
+    // PUBLIC VARIABLES
+    public Game_Controller controller;
 
 
     // Use this for initialization
     void Start()
     {
         this._transform = this.GetComponent<Transform>();
-
-        this._reset();
+        this.Speed = Random.Range(5, 10);
+        this.Drift = 2;
+        controller = GameObject.FindWithTag("GameController").GetComponent<Game_Controller>();
     }
 
     // Update is called once per frame
@@ -103,17 +107,15 @@ public class Drunk_Car_Controller : MonoBehaviour {
     {
         if (this._transform.position.x <= 256f)
         {
-            this._reset();
+            this._destroy();
         }
     }
-
     /**
-	 * this method resets the game object to the original position
-	 */
-    private void _reset()
+     * this method resets the game object to the original position
+     */
+    private void _destroy()
     {
-        this.Speed = Random.Range(5, 10);
-        this.Drift = 2;
-        this._transform.position = new Vector2(1039f,Random.Range(-214.7f, 118.7f));
+        controller.SpawnCars();
+        DestroyObject(gameObject);
     }
 }

@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Player_Controller : MonoBehaviour {
     // PRIVATE INSTANCE VARIABLES
     private Transform _transform;
+
+    // PUBLIC VARIABLES
+    public Game_Controller controller;
 
 	// Use this for initialization
 	void Start () {
@@ -23,9 +27,11 @@ public class Player_Controller : MonoBehaviour {
     //detects if hit by car
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Trigger");
         if(other.gameObject.CompareTag("Car"))
         {
             Debug.Log("Ran Over");
+            controller.DecreaseLives();
         }
 
     }
