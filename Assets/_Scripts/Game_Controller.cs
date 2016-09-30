@@ -11,12 +11,13 @@ public class Game_Controller : MonoBehaviour {
     // The values we'll be printing
     private int score = 0;
     private int livesNumber = 10;
+    private int plus1000 = 1000;
 
     public GameObject Car01;
     public GameObject Car02;
     public GameObject Car03;
     public GameObject Car04;
-    public int level=1;
+    public GameObject Ball;
 
     void Start ()
     {
@@ -24,7 +25,7 @@ public class Game_Controller : MonoBehaviour {
     }
     public void SpawnCars ()
     {
-            switch (Random.Range(1,4))
+            switch (Random.Range(1, 5))
             {
                 case 1:
                     {
@@ -52,10 +53,20 @@ public class Game_Controller : MonoBehaviour {
     {
         score += increase;
         scoreText.text = "Score: " + score;
+        if(score == plus1000)
+        {
+            plus1000 += 1000;
+            Instantiate(Ball);
+        }
     }
     public void DecreaseLives()
     {
         livesNumber--;
+        livesText.text = "Lives: " + livesNumber;
+    }
+    public void IncreaseLives()
+    {
+        livesNumber++;
         livesText.text = "Lives: " + livesNumber;
     }
 }

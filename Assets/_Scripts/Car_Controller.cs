@@ -16,7 +16,7 @@ public class Car_Controller : MonoBehaviour
     {
         this._transform = this.GetComponent<Transform>();
         controller = GameObject.FindWithTag("GameController").GetComponent <Game_Controller> ();
-
+        this._transform.position = new Vector2(1040f, Random.Range(-204f, 118.6f));
     }
 
     // Update is called once per frame

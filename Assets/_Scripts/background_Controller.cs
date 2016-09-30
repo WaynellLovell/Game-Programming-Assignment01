@@ -56,7 +56,7 @@ public class background_Controller : MonoBehaviour {
      */
     private void _checkBounds()
     {
-        if (this._transform.position.x <= -235f)
+        if (this._transform.position.x <= -208f)
         {
             this._reset();
         }
@@ -67,6 +67,6 @@ public class background_Controller : MonoBehaviour {
      */
     private void _reset()
     {
-        this._transform.position = new Vector2(1527f, 0f);
+        this._transform.position = new Vector2(1510f, 0f);
     }
 }
