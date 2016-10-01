@@ -32,7 +32,7 @@ public class Player_Controller : MonoBehaviour {
     //detects if hit by car
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Car"))
+        if(other.gameObject.CompareTag("Car") || other.gameObject.CompareTag("Drunk_Driver"))
         {
             _source.PlayOneShot(Hit_Sound);
             controller.DecreaseLives();

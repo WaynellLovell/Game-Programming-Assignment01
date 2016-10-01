@@ -128,7 +128,7 @@ public class Drunk_Car_Controller : MonoBehaviour
      */
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Car"))
+        if (other.gameObject.CompareTag("Car")||other.gameObject.CompareTag("Drunk_Driver"))
         {
             controller.DrunkCarHit();
             DriftPosition = "Up";
