@@ -2,13 +2,15 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Drunk_Car_Controller : MonoBehaviour {
+public class Drunk_Car_Controller : MonoBehaviour
+{
 
     // PRIVATE INSTANCE VARIABLES +++++++++++++++++++++++++++++
     private int _speed;
     private int _drift;
     private string _driftPosition;
     private Transform _transform;
+
 
     // PUBLIC PROPERTIES
     public int Speed
@@ -87,14 +89,14 @@ public class Drunk_Car_Controller : MonoBehaviour {
     }
     /**
      * this method decides which position to drift
-     */ 
-     private void _checkBounce()
+     */
+    private void _checkBounce()
     {
         if (this._transform.position.y <= -213f)
         {
             DriftPosition = "Up";
         }
-        else if(this._transform.position.y >= 117.8f)
+        else if (this._transform.position.y >= 117.8f)
         {
             DriftPosition = "Down";
         }
@@ -115,7 +117,21 @@ public class Drunk_Car_Controller : MonoBehaviour {
      */
     private void _destroy()
     {
-        controller.SpawnCars();
+        if (!controller.IsGameOver)
+        {
+            controller.SpawnCars();
+        }
         DestroyObject(gameObject);
+    }
+    /**
+     * this method makes crash noises when drunk cards hit another car
+     */
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Car"))
+        {
+            controller.DrunkCarHit();
+            DriftPosition = "Up";
+        }
     }
 }

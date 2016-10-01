@@ -11,6 +11,7 @@ public class Player_Controller : MonoBehaviour {
     public Game_Controller controller;
     public AudioClip Hit_Sound;
     public AudioClip Caught_Ball_Sound;
+    public AudioClip Dog_Bark;
 
     // Use this for initialization
     void Start () {
@@ -41,6 +42,6 @@ public class Player_Controller : MonoBehaviour {
             _source.PlayOneShot(Caught_Ball_Sound);
             controller.IncreaseLives();
         }
-
+        _source.PlayOneShot(Dog_Bark);
     }
 }

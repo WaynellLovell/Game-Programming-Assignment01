@@ -7,6 +7,7 @@ public class background_Controller : MonoBehaviour {
     // PRIVATE INSTANCE VARIABLES +++++++++++++++++++++++
     private int _speed;
     private Transform _transform;
+    private AudioSource _source;
 
     // PUBLIC PROPERTIES+++++++++++++++++++++++++++++++++
     public int Speed
@@ -21,6 +22,7 @@ public class background_Controller : MonoBehaviour {
         }
     }
     public Game_Controller controller;
+    public AudioClip traffic_noise;
 
     // Use this for initialization
     void Start()
@@ -28,6 +30,7 @@ public class background_Controller : MonoBehaviour {
         this._transform = this.GetComponent<Transform>();
         this._speed = 2;
         controller = GameObject.FindWithTag("GameController").GetComponent<Game_Controller>();
+        this._source = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,7 +51,10 @@ public class background_Controller : MonoBehaviour {
 
         this._transform.position = newPosition;
 
-        controller.IncreaseScore(1);
+        if (!controller.IsGameOver)
+        {
+            controller.IncreaseScore(1);
+        }
     }
 
     /**

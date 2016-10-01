@@ -54,7 +54,10 @@ public class Car_Controller : MonoBehaviour
      */
     private void _destroy()
     {
-        controller.SpawnCars();
+        if (!controller.IsGameOver)
+        {
+            controller.SpawnCars();
+        }
         DestroyObject(gameObject);
     }
 }
